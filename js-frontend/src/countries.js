@@ -42,11 +42,14 @@ class Country {
  
     fullRender(){
         this.element.innerHTML =
-        `<li>
-        <span class="cc">${this.cc}</span>
-        <strong class="name">${this.name}</strong>:
-        </li>
-        <button class="create" data-id="${this.id}">Create Resource</button>`
+            `<li>
+            <h2 class="name">Country: ${this.name}</h2><br>
+            <span class="cc">Country Code: ${this.cc}</span><br>
+            </li><br>
+            <button class="create" data-id="${this.id}">Create Resource</button><br>
+            <h3> Resources<br>
+            __________
+            `
         return this.element
     }
 

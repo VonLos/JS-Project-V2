@@ -15,17 +15,19 @@ class Resource {
     }
  
     fullRender(){
-       let el = document.createElement('li')
+       let el = document.createElement('p')
        let form = document.getElementById(`rform-${this.country_id}`)
        el.innerHTML =
-        `<li id="${this.id}">
-        <h3 class="name">${this.name}</h3>
-         <h3 class="link">${this.link}:</h3>
-        </li>
+        `<p id="${this.id}">
+         <br> <span class="name">Resource Name: ${this.name}</span><br>
+         <br><span class="link">Resource Link: ${this.link}</span><br>
+        </p><br>
         <button class="delete" data-id="${this.id}">Delete</button>
         `
-        this.element.append(el)
+        this.element.appendChild(el)
+        if(form){
         form.remove()
+        }
     }
     addEventListeners(){
         this.element.addEventListener('click', this.handleClick)
@@ -35,6 +37,7 @@ class Resource {
         if (e.target.className === "delete"){
             let id = e.target.dataset.id
             resourcesAdapter.deleteResource(id)
+            this.element.removeEventListener('click',this.handleClick)
             let el = document.getElementById(`${this.id}`)
              el.remove()
         }

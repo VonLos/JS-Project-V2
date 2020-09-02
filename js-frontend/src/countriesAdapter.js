@@ -13,8 +13,9 @@ class CountriesAdapter{
                 let e = new Country(el.attributes.id, el.attributes.cc,el.attributes.name)
                e.attachToDom()
             })
-            
-        })
+            const resourcesAdapter = new ResourcesAdapter
+            resourcesAdapter.fetchResources()
+         })
     }
 
 }
